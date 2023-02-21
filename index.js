@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose');
 const app = express()
 const cors = require('cors');
-const port =4000;
+const port = process.env.PORT || 4000;
 
 app.use(express.json({ extended: true, limit: '50mb' }));
 app.use(express.urlencoded());
