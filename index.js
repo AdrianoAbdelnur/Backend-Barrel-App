@@ -8,7 +8,14 @@ app.use(express.json({ extended: true, limit: '50mb' }));
 app.use(express.urlencoded());
 app.use(cors());
 
+app.get('/', (req, res) => {
+    res.status(200).send({msg : "hola Adriano"})
+})
 
+app.post('/welcome', (req,res) => {
+    const {userName} = req.body;
+    res.status(200).send({msg: `hola ${userName}`})
+})
 
 mongoose.connect('mongodb+srv://admin:admin@barrel.y8jbfwb.mongodb.net/test').then(()=>{
     console.log('conectado a mongoDB');
