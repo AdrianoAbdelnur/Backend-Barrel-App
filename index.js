@@ -17,6 +17,8 @@ app.post('/welcome', (req,res) => {
     res.status(200).send({msg: `hola ${userName}`})
 })
 
+app.use('/api', require('./src/routes'))
+
 mongoose.connect('mongodb+srv://admin:admin@barrel.y8jbfwb.mongodb.net/test').then(()=>{
     console.log('conectado a mongoDB');
     server = app.listen(port, () => {
